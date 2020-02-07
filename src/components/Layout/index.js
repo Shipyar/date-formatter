@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, } from 'react';
 // TODO ADD PROPTYPES
 import { ThemeProvider } from 'styled-components';
 

@@ -1,13 +1,22 @@
 import React from "react";
 
-import { StyledOpeningItem } from "./styles";
+import useCalculateOpening from '../../lib/useCalculateOpening';
 
-const OpeningItem = ({ label, openingTimes }) => {
+import { StyledOpeningItem, StyledWeekday, StyledOpening } from "./styles";
+
+const OpeningItem = ({ label, openingTimes, today }) => {
   // capitalise the label.
   const CAPITALISE_LABEL = label.charAt(0).toUpperCase() + label.slice(1);
+  const [ result ] = useCalculateOpening(openingTimes);
 
-  console.log(openingTimes);
-  return <StyledOpeningItem>{CAPITALISE_LABEL}</StyledOpeningItem>;
+  return (
+    <StyledOpeningItem>
+      <StyledWeekday>{CAPITALISE_LABEL}</StyledWeekday>
+      {today ? <span>TODAY</span> : ''}
+      <StyledOpening>{result}</StyledOpening>
+    </StyledOpeningItem>
+  )
+  
 };
 
 export default OpeningItem;

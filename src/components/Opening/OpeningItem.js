@@ -20,7 +20,9 @@ const OpeningItem = ({ label, openingTimes, today }) => {
         {CAPITALISE_LABEL}
         {today ? <StyledDate>TODAY</StyledDate> : ""}
       </StyledWeekday>
-      <StyledOpening>{result}</StyledOpening>
+      <StyledOpening isClosed={result === "Closed" ? true : false}>
+        {result}
+      </StyledOpening>
     </StyledOpeningItem>
   );
 };

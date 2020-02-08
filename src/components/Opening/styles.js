@@ -53,6 +53,8 @@ export const StyledOpening = styled.p`
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+  color: ${props =>
+    props.isClosed ? props.theme.colors.greyThree : props.theme.colors.black};
 `;
 
 export const StyledDate = styled.span`

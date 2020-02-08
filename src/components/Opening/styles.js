@@ -17,7 +17,7 @@ export const StyledOpeningTitle = styled.div`
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.black};
   & svg {
-    color: ${props => props.theme.colors.greyThree}
+    color: ${props => props.theme.colors.greyThree};
   }
 `;
 
@@ -25,6 +25,7 @@ export const StyledHeading = styled.h3`
   margin: 0;
   font-size: 24px;
   line-height: 30px;
+  padding-left: 12px;
 `;
 
 export const StyledOpeningGrid = styled.div`
@@ -52,4 +53,12 @@ export const StyledOpening = styled.p`
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+`;
+
+export const StyledDate = styled.span`
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 12px;
+  color: ${props => props.theme.colors.green};
 `;

@@ -1,45 +1,82 @@
-// TODO: GOING TO CREATE A SIMPLE HOOK TO CONVERT TIME IN SECONDS TO HOUR
 import { useState, useEffect } from "react";
+import convertToHours from "./convertToHours";
 
 /**
- * 
- * @param {array} openings - 
+ * React hook to convert opening times into sorted array of opening times.
+ * @param {object} openings - Holds key value pairs for days of the week and opening Times
+ * @returns {array} Returns an array of objects containing day of the week and its opening times
  */
-const useCalculateOpening = (openings) => {
-  const [result, setResult] = useState(null);
+const useCalculateOpening = openings => {
+  // State to hold the final result
+  const [result, setResult] = useState([]);
 
-  // constant to hold seconds
-  const SECONDS_IN_DAY = 86400;
-
-  const MINUTES_IN_DAY = 60;
-
-  // Calculate result each time the opening times change
+  // Effect hook to be called each time openings is modified.
   useEffect(() => {
-    let string = '';
+    if (openings !== undefined) {
+      Object.keys(openings).forEach((weekday, weekdayIndex, weekdays) => {
+        let openingTimes = "";
+        // If there is an empty array the day is closed
+        if (!Array.isArray(openings[weekday]) || !openings[weekday].length)
+          openingTimes = "Closed";
 
-    openings.forEach((day) => {
-      
-      let hours = Math.floor(day.value / MINUTES_IN_DAY / MINUTES_IN_DAY);
+        // store a reference to the next day. We will need this later on
+        // to check if the next day closed the previous day.
+        const nextDay =
+          weekdayIndex === weekdays.length - 1
+            ? weekdays[0]
+            : weekdays[weekdayIndex + 1];
 
-      if (hours > 12) {
-        hours = hours % 12;
-      }
-      
-      // Check wether the value is less than half a day in seconds making it the morning.
-      let meridian = day.value < (SECONDS_IN_DAY / 2) ? 'AM' : 'PM';
+        // loop through all opening times of each week day
+        openings[weekday].forEach(({ type, value }, index, openingsArray) => {
+          // use the conversion function to change the value into 12hr string
+          const calculatedTime = convertToHours(value);
 
-      string = `${string} ${hours}${meridian}`;
-    })
-    
-    setResult(string);
+          // Handle all open types
+          if (type === "open") {
+            // Check if this is the second open on the weekday
+            if (index > 1) {
+              // if its the second open we want to append the calculated time to the origional
+              openingTimes = `${openingTimes}, ${calculatedTime}`;
+            } else {
+              // we can be sure its the first time and we just set it to the calculated time
+              openingTimes = `${calculatedTime}`;
+            }
 
-    // If the array is empty we can safely say that the resturant is closed on that day.
-    if (!Array.isArray(openings) || !openings.length) setResult('Closed');
-  }, [openings])
+            // Check if its the last opening in the weekday
+            if (index === openingsArray.length - 1) {
+              // desctructure the type and value for the next day.
+              const { type, value } = openings[nextDay][0];
+              // final check to make sure the following day is closed
+              if (type === "close") {
+                openingTimes = `${openingTimes} - ${convertToHours(value)}`;
+              }
+            }
+          }
+          // handle all close types
+          if (type === "close") {
+            // We know that if there is only one item in the array we and its close
+            // its been handled in the previous open so we can set this to be closed
+            if (index === 0 && openingsArray.length === 1) {
+              openingTimes = "Closed";
+            } else if (index !== 0) {
+              // Otherwise we apped the calculated time to the opening times
+              openingTimes = `${openingTimes} - ${calculatedTime}`;
+            }
+          }
+        });
+        // append the new opening day info to the previous state
+        setResult(prevState => [
+          ...prevState,
+          {
+            day: weekday,
+            openingTimes
+          }
+        ]);
+      });
+    }
+  }, [openings]);
 
-  
-
-  return [result]
+  return [result];
 };
 
 export default useCalculateOpening;

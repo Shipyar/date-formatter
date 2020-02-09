@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledOpeningContainer = styled.div`
-  width: 300px;
+  min-width: 300px;
+  max-width: 400px;
   height: 350px;
   display: grid;
-  margin: 50px auto;
   grid-template-rows: 30px 1fr;
   padding: 20px;
   background-color: ${props => props.theme.colors.white};
@@ -16,6 +16,7 @@ export const StyledOpeningTitle = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.black};
+  padding-bottom: 10px;
   & svg {
     color: ${props => props.theme.colors.greyThree};
   }

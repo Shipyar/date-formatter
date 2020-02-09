@@ -1,12 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
 const colors = {
-  black: '#202125',
-  white: '#FFFFFF',
-  green: '#5BCB02',
-  greyOne: '#F8F8F8',
-  greyTwo: '#EEEEEE',
-  greyThree: '#A1A2A4',
+  black: "#202125",
+  white: "#FFFFFF",
+  green: "#5BCB02",
+  greyOne: "#F8F8F8",
+  greyTwo: "#EEEEEE",
+  greyThree: "#A1A2A4"
 };
 
 // const fonts = {
@@ -20,19 +20,27 @@ const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 16px;
+    height: 100vh;
   }
   *, *:before, *:after {
     box-sizing: inherit;
   }
   body {
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    line-height: 30px;
-    font-weight: 400;
-    max-width: 100%;
     padding: 0;
     margin: 0;
+    height: 100vh;
+    #root {
+      height: 100%;
+    }
   }
-`
+`;
+
+export const StyledAppContainer = styled.div`
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`;
 
 export { colors, GlobalStyles };

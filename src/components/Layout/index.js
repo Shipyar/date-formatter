@@ -1,15 +1,14 @@
-import React, { useContext, } from 'react';
-// TODO ADD PROPTYPES
-import { ThemeProvider } from 'styled-components';
+import React, { useContext } from "react";
+import { ThemeProvider } from "styled-components";
 
-import ThemeContext from '../../context/ThemeContext'
+import ThemeContext from "../../context/ThemeContext";
 
 // Styling theme
-import { colors, GlobalStyles } from './styles';
+import { colors, GlobalStyles } from "./styles";
 
 const theme = {
-  colors,
-}
+  colors
+};
 
 const Layout = ({ children }) => {
   const { isDark } = useContext(ThemeContext);
@@ -17,11 +16,9 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <>
-        {children}
-      </>
+      <>{children}</>
     </ThemeProvider>
-  )
+  );
 };
 
 export default Layout;

@@ -13,7 +13,7 @@ export default {
 export const Default = () => {
   return (
     <Layout>
-      <Opening resturantOpenings={data} />
+      <Opening openings={data} />
     </Layout>
   );
 };
@@ -21,7 +21,15 @@ export const Default = () => {
 export const ComplexDataStructure = () => {
   return (
     <Layout>
-      <Opening resturantOpenings={complexData} />
+      <Opening openings={complexData} />
+    </Layout>
+  );
+};
+
+export const MissingDataStructure = () => {
+  return (
+    <Layout>
+      <Opening />
     </Layout>
   );
 };

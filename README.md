@@ -16,5 +16,5 @@ You will also see any lint errors in the console.
 
 ### `npm run storybook`
 
-Runs the app in story book this version will show you some of the testing user stories I created<br />
+Runs the app in story book this version will show you some of the special cases that needed to be fulfilled<br />
 Open [http://localhost:9009](http://localhost:3000) to view it in the browser.

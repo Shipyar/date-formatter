@@ -18,12 +18,24 @@ import {
   StyledOpeningGrid
 } from "./styles";
 
+const defaultOpeningProp = {
+  monday: [],
+  tuesday: [],
+  wednesday: [],
+  thursday: [],
+  friday: [],
+  saturday: [],
+  sunday: [],
+};
+
 /**
  * Opening Component
  * This component is used to render all openings for an individual resturant.
  * @param {json} openings - PASS DATA DOWN FROM APP
  */
-const Opening = ({ openings }) => {
+const Opening = ({ 
+  openings = defaultOpeningProp,
+ }) => {
   const TODAY = new Date();
 
   // turns out getDay presumes Sunday is the first day of the week

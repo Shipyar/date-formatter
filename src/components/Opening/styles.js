@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledOpeningContainer = styled.div`
-  min-width: 300px;
+  max-width: 350px;
   height: 350px;
   display: grid;
   grid-template-rows: 30px 1fr;

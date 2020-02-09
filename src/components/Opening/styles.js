@@ -6,7 +6,7 @@ export const StyledOpeningContainer = styled.div`
   display: grid;
   grid-template-rows: 30px 1fr;
   padding: 20px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.background};
   border-radius: 8px;
   box-shadow: 0px 1px 3px 0px rgba(64, 64, 64, 0.15);
 `;
@@ -14,7 +14,7 @@ export const StyledOpeningContainer = styled.div`
 export const StyledOpeningTitle = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.black};
+  border-bottom: 1px solid ${props => props.theme.colors.default};
   padding-bottom: 10px;
   & svg {
     color: ${props => props.theme.colors.greyThree};
@@ -23,6 +23,7 @@ export const StyledOpeningTitle = styled.div`
 
 export const StyledHeading = styled.h3`
   margin: 0;
+  color: ${props => props.theme.colors.default};
   font-size: 24px;
   line-height: 30px;
   padding-left: 12px;
@@ -46,6 +47,7 @@ export const StyledOpeningItem = styled.div`
 
 export const StyledWeekday = styled.h4`
   margin: 0;
+  color: ${props => props.theme.colors.default};
 `;
 
 export const StyledOpening = styled.p`
@@ -54,7 +56,7 @@ export const StyledOpening = styled.p`
   line-height: 22px;
   font-weight: 400;
   color: ${props =>
-    props.isClosed ? props.theme.colors.greyThree : props.theme.colors.black};
+    props.isClosed ? props.theme.colors.greyThree : props.theme.colors.default};
 `;
 
 export const StyledDate = styled.span`

@@ -4,14 +4,14 @@ import { ThemeProvider } from "styled-components";
 import ThemeContext from "../../context/ThemeContext";
 
 // Styling theme
-import { colors, GlobalStyles } from "./styles";
-
-const theme = {
-  colors
-};
+import { lightTheme, darkTheme, GlobalStyles } from "./styles";
 
 const Layout = ({ children }) => {
   const { isDark } = useContext(ThemeContext);
+
+  const theme = {
+    colors : isDark ? darkTheme : lightTheme,
+  };
 
   return (
     <ThemeProvider theme={theme}>

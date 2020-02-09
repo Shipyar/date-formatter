@@ -1,20 +1,22 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-const colors = {
-  black: "#202125",
-  white: "#FFFFFF",
+const lightTheme = {
+  default: "#202125",
+  background: "#FFFFFF",
   green: "#5BCB02",
   greyOne: "#F8F8F8",
   greyTwo: "#EEEEEE",
   greyThree: "#A1A2A4"
 };
 
-// const fonts = {
-//   heading: 'bold 24px/30px Roboto',
-//   robotoReg: 'normal 16px/22px Roboto',
-//   robotoMed: 'medium 16px/22px Roboto',
-//   highlight: 'bold 12px/16px Roboto',
-// }
+const darkTheme = {
+  default: "#fefefe",
+  background: "#535c68",
+  green: "#5BCB02",
+  greyOne: "#F8F8F8",
+  greyTwo: "#EEEEEE",
+  greyThree: "#A1A2A4"
+};
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -43,4 +45,4 @@ export const StyledAppContainer = styled.div`
   justify-items: center;
 `;
 
-export { colors, GlobalStyles };
+export { lightTheme, darkTheme, GlobalStyles };

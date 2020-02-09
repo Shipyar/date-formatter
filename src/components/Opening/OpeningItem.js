@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 import {
   StyledOpeningItem,
@@ -30,6 +31,17 @@ const OpeningItem = ({ label, openingTimes, today }) => {
       </StyledOpening>
     </StyledOpeningItem>
   );
+};
+
+OpeningItem.propTypes = {
+  /** Json object of all resturant openin times for the week */
+  label: PropTypes.string,
+
+  /** String containing opening times for the day */
+  openingTimes: PropTypes.string,
+
+  /** Bool which states if the weekday is also the current day */
+  today: PropTypes.bool,
 };
 
 export default OpeningItem;

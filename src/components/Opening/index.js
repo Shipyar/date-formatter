@@ -18,6 +18,7 @@ import {
   StyledOpeningGrid
 } from "./styles";
 
+// default prop so we can make sure that the resturants show closed if no input is provided
 const defaultOpeningProp = {
   monday: [],
   tuesday: [],
@@ -68,7 +69,7 @@ const Opening = ({
 
 Opening.propTypes = {
   /** Json object of all resturant openin times for the week */
-  openings: PropTypes.object.isRequired
+  openings: PropTypes.object
 };
 
 export default Opening;

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledOpeningContainer = styled.div`
   min-width: 300px;
-  max-width: 400px;
   height: 350px;
   display: grid;
   grid-template-rows: 30px 1fr;
@@ -51,7 +50,7 @@ export const StyledWeekday = styled.h4`
 
 export const StyledOpening = styled.p`
   margin: 0;
-  font-size: 16px;
+  font-size: ${props => props.isLarge ? '12px' : '16px'};
   line-height: 22px;
   font-weight: 400;
   color: ${props =>

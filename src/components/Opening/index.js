@@ -25,7 +25,6 @@ import {
  */
 const Opening = ({ openings }) => {
   const TODAY = new Date();
-  console.log("rendered");
 
   // turns out getDay presumes Sunday is the first day of the week
   let dayIndex = TODAY.getDay();

@@ -4,7 +4,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 import { StyledAppContainer } from "./components/Layout/styles";
 
-import data from "./data/complexData";
+import data from "./data/userData";
 
 // Base Layout holds all theme information
 import Layout from "./components/Layout";

@@ -10,6 +10,9 @@ const convertToHours = seconds => {
   // Divide total seconds by the seconds in an hour to give us the hour rounded down.
   let hours = Math.floor(seconds / SECONDS_IN_HOUR);
 
+  // if hours is 24 we want to set this to 12 as a resturant can close at 12pm
+  if (hours === 24) hours = 12;
+
   // find the remainder of all hours past midday to conver to 12 hour clock
   if (hours > 12) hours = hours % 12;
 

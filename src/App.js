@@ -9,7 +9,7 @@ import data from "./data/userData";
 // Base Layout holds all theme information
 import Layout from "./components/Layout";
 import Opening from "./components/Opening";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 
 const App = () => {
   return (

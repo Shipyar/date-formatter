@@ -36,7 +36,6 @@ export const StyledHeading = styled.h3`
 export const StyledOpeningGrid = styled.div`
   display: grid;
   align-items: center;
-  
 `;
 
 export const StyledOpeningItem = styled.div`
@@ -58,7 +57,7 @@ export const StyledWeekday = styled.h4`
 
 export const StyledOpening = styled.p`
   margin: 0;
-  font-size: ${props => props.isLarge ? '12px' : '16px'};
+  font-size: ${props => (props.isLarge ? "12px" : "16px")};
   line-height: 22px;
   font-weight: 400;
   transition: all 0.25s linear;

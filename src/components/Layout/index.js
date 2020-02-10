@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   const { isDark } = useContext(ThemeContext);
 
   const theme = {
-    colors : isDark ? darkTheme : lightTheme,
+    colors: isDark ? darkTheme : lightTheme
   };
 
   return (

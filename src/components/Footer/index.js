@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 
-import ThemeContext from '../../context/ThemeContext'
+import ThemeContext from "../../context/ThemeContext";
 
-import { StyledFooter, StyledCopyright, StyledCiting } from './styles'
+import { StyledFooter, StyledCopyright, StyledCiting } from "./styles";
 
 const Footer = () => {
-  const { toggleIsDark } = useContext(ThemeContext)
+  const { toggleIsDark } = useContext(ThemeContext);
 
   return (
     <StyledFooter>
@@ -13,10 +13,16 @@ const Footer = () => {
         © {new Date().getFullYear()} Oliver Abraham
       </StyledCopyright>
       <StyledCiting>
-        <span style={{textDecoration: 'underline', cursor: 'pointer'}} role="button" onClick={toggleIsDark}>Enable Dark Mode.</span>
+        <span
+          style={{ textDecoration: "underline", cursor: "pointer" }}
+          role="button"
+          onClick={toggleIsDark}
+        >
+          Enable Dark Mode.
+        </span>
       </StyledCiting>
     </StyledFooter>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

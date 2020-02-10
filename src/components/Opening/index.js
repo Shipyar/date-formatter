@@ -26,7 +26,7 @@ const defaultOpeningProp = {
   thursday: [],
   friday: [],
   saturday: [],
-  sunday: [],
+  sunday: []
 };
 
 /**
@@ -34,9 +34,7 @@ const defaultOpeningProp = {
  * This component is used to render all openings for an individual resturant.
  * @param {json} openings - PASS DATA DOWN FROM APP
  */
-const Opening = ({ 
-  openings = defaultOpeningProp,
- }) => {
+const Opening = ({ openings = defaultOpeningProp }) => {
   const TODAY = new Date();
 
   // turns out getDay presumes Sunday is the first day of the week

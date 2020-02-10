@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 import {
   StyledOpeningItem,
@@ -14,8 +14,6 @@ const OpeningItem = ({ label, openingTimes, today }) => {
 
   // Wanted a way to reduce the size of the opening times if they are far too large
   const reduceSize = openingTimes.length > 35 ? true : false;
-
-  console.log(reduceSize);
 
   return (
     <StyledOpeningItem>
@@ -41,7 +39,7 @@ OpeningItem.propTypes = {
   openingTimes: PropTypes.string,
 
   /** Bool which states if the weekday is also the current day */
-  today: PropTypes.bool,
+  today: PropTypes.bool
 };
 
 export default OpeningItem;
